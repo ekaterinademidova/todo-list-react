@@ -1,0 +1,229 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://use.fontawesome.com/releases/v5.0.13/css/all.css");
+
+:root {
+    --main-bg-color: white;
+    --main-text-color: #4b4b4b;
+    --main-accent-color: #3a3a3a;
+    --secondary-accent-color: #adadad;
+    --main-overlay-color: rgba(0, 0, 0, 0.5);
+    --secondary-overlay-color: rgba(0, 0, 0, 0);
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    color: var(--main-text-color);
+    background: var(--main-bg-color);
+}
+
+.themes {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--main-text-color);
+    border-radius: 5px;
+    background: var(--main-text-color);
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+
+    &-item {
+        width: 50%;
+
+        &.active {
+            color: var(--main-bg-color);
+        }
+    }
+}
+
+.app {
+    padding-top: 5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.wrap {
+    width: 464px;
+}
+
+.fas:hover,
+.far:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.fa-plus:hover {
+    opacity: 1;
+    cursor: default;
+}
+
+.list {
+    padding: 32px;
+    border: 1px solid var(--main-text-color);
+    border-radius: 10px;
+    box-shadow: 0 0 8px var(--secondary-accent-color);
+    font-size: 18px;
+    line-height: 24px;
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        line-height: 48px;
+        color: var(--main-accent-color);
+    }
+
+    &__title-wrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+
+        .fa-pencil-alt {
+            display: none;
+        }
+
+        .fas:last-child {
+            margin-left: 6px;
+        }
+
+        &:hover .fa-pencil-alt {
+            display: block;
+        }
+    }
+
+    &__title {
+        width: 100%;
+        border: none;
+        background: var(--main-bg-color);
+        color: var(--main-accent-color);
+        font-weight: 700;
+        font-size: 36px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .container-icons {
+        display: flex;
+    }
+
+    &__body {
+        margin-top: 16px;
+    }
+
+    &__nav-tabs {
+        display: flex;
+        padding: 0;
+        margin-bottom: 20px;
+
+        a {
+            text-decoration: none;
+            color: var(--secondary-accent-color);
+        }
+
+        li {
+            width: 50%;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border-bottom: 1px solid var(--secondary-accent-color);
+
+            &.active {
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+                border: 1px solid var(--secondary-accent-color);
+                border-bottom: none;
+
+                a {
+                    color: var(--main-text-color);
+                }
+            }
+        }
+    }
+
+    &__dropdown {
+        display: flex;
+        align-items: center;
+        line-height: 30px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-top: 1px solid var(--secondary-accent-color);
+
+        .fas:first-child {
+            margin-right: 6px;
+        }
+
+        input {
+            border: none;
+            background: var(--main-bg-color);
+            color: var(--main-text-color);
+        }
+    }
+
+    &__item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        line-height: 24px;
+        padding-bottom: 5px;
+
+        &:last-child {
+            padding-bottom: 0;
+        }
+
+        .fa-trash,
+        .fa-save {
+            margin-left: 6px;
+        }
+
+        input {
+            border: none;
+            background: var(--main-bg-color);
+            color: var(--main-text-color);
+            margin-left: 6px;
+        }
+
+        &.todo .fa-edit,
+        .fa-trash {
+            display: none;
+        }
+
+        &.todo:hover .fa-edit,
+        &.todo:hover .fa-trash {
+            display: block;
+        }
+
+        &.todo.edit {
+            .fa-square {
+                color: var(--secondary-accent-color);
+                pointer-events: none;
+            }
+        }
+
+        &.done .list__item-text,
+        &.arch .list__item-text {
+            text-decoration: line-through;
+            color: var(--secondary-accent-color);
+        }
+
+        &.arch .fa-undo-alt {
+            display: none;
+        }
+
+        &.arch:hover .fa-undo-alt {
+            display: block;
+        }
+
+        &.add {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+    }
+
+    &__item-text {
+        width: 100%;
+    }
+}
